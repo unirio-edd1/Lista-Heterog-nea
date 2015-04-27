@@ -3,7 +3,7 @@
 
 void figura::imprime()
 {
-    cout << "Implementar imprime.\n";
+    cout << typeid(this).name() << "Implementar imprime.\n";
 }
 
 void retangulo::imprime()
