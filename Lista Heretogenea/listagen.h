@@ -62,12 +62,35 @@ template<class T> bool listaFig<T>::remove(const int n){
 
 /* Imprime a maior area */
 template<class T> void listaFig<T>::max_area() const {
-    cout << "Implementar: Maior AREA.\n";
+    float maior = 0;
+    figura * figm;
+    elo * p;
+    int k, nmaior;
+    figura * f;
+    
+    for( p = ini, k = 1; p!= NULL; p = p->prox, k++ ){
+        f = p->info;
+        if (f->area() > maior ){
+            maior = f->area();
+            figm = f;
+            nmaior = k; 
+        } 
+    }
+    
+    cout << "Maior AREA: Figura " << nmaior << " ";
+    figm->imprime();
 }
 
 /* Imprime todos os elementos da lista */
 template<class T> void listaFig<T>::imprime() {
-
+    elo * p;
+    int k;
+    
+    for(p=ini, k=1; p!=NULL; p=p->prox, k++){
+        figura * f = p->info;
+        cout << "Figura " << k << " do tipo ";
+        f->imprime();
+    }
 }
 
 template<class T> listaFig<T>::~listaFig(){
